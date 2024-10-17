@@ -42,35 +42,6 @@ class BinarySearchTree {
     this.root = null;
   }
 
-  // insert(value) {
-  //   const newNode = new Node(value);
-
-  //   if (!this.root) {
-  //     this.root = newNode;
-  //     return this;
-  //   }
-  //   let node = this.root;
-  //   let found = false;
-
-  //   while (!found) {
-  //     if (node.value < value) {
-  //       if (!node.right) {
-  //         node.right = newNode;
-  //         found = true;
-  //       } else {
-  //         node = node.right;
-  //       }
-  //     } else {
-  //       if (!node.left) {
-  //         found = true;
-  //         node.left = newNode;
-  //       } else {
-  //         node = node.left;
-  //       }
-  //     }
-  //   }
-  // }
-
   insert(value) {
     const newNode = new Node(value);
 

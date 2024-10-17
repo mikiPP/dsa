@@ -1,76 +1,3 @@
-class TrieNode {
-  constructor() {
-    this.children = {};
-    this.count = 0;
-  }
-}
-
-class Trie {
-  constructor() {
-    this.root = new TrieNode();
-  }
-
-  insert(word) {
-    let node = this.root;
-    for (let char of word) {
-      if (!node.children[char]) {
-        node.children[char] = new TrieNode();
-      }
-      node = node.children[char];
-      node.count++;
-    }
-  }
-
-  count_prefix(prefix) {
-    let node = this.root;
-    for (let char of prefix) {
-      if (!node.children[char]) {
-        return 0;
-      }
-      node = node.children[char];
-    }
-    return node.count;
-  }
-}
-
-function contacts(queries) {
-  const trie = new Trie();
-  const found = [];
-
-  for (let query of queries) {
-    const [instruction, name] = query.split(' ');
-    if (instruction === 'add') {
-      trie.insert(name);
-    } else if (instruction === 'find') {
-      found.push(trie.count_prefix(name));
-    }
-  }
-
-  return found;
-}
-
-// console.log(contacts(['add hack', 'add hackerrank', 'find hac', 'find hak'])); // [2, 0]
-
-function binarySearch(sortedArray, expectedValue) {
-  let left = 0;
-  let right = sortedArray.length - 1;
-
-  while (left <= right) {
-    const floatMiddleValue = (left + right) / 2;
-    const middle = Math.floor(floatMiddleValue);
-
-    if (sortedArray[middle] === expectedValue) {
-      return middle;
-    } else if (expectedValue > sortedArray[middle]) {
-      left = middle + 1;
-    } else if (expectedValue < sortedArray[middle]) {
-      right = middle - 1;
-    }
-  }
-
-  return -1;
-}
-
 function bubbleSort(array) {
   let iterationCount = 0;
   let didWeSwap = true;
@@ -100,9 +27,6 @@ function bubbleSort(array) {
 
 // console.log(bubbleSort([1, 2, 3, 5, 4, 6, 7]));
 // console.log(bubbleSort([8, 7, 3, 2, 1, 5, 9, 6]));
-
-// [1,5,7] [2,4,6,8]
-//[1,2,4,5,6,7,8]
 
 function mergeArray(firstArray, secondArray) {
   const result = [];
